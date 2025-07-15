@@ -1,6 +1,8 @@
 ---
 import "@/styles/global.css";
 import Vaulti from "@/assets/vaulti.jpg";
+import Icon from "@/assets/foto.jpg";
+import Servers from "@/assets/servers.png";
 ---
 
 <div
@@ -192,7 +194,7 @@ import Vaulti from "@/assets/vaulti.jpg";
           data-nimg="1"
           class="w-30 h-30 rounded-full object-cover"
           style="color:transparent"
-          src="./src/assets/foto.jpg"
+          src={Icon.src}
         />
         <div
           class="flex flex-col gap-4 text-left"
@@ -247,7 +249,7 @@ import Vaulti from "@/assets/vaulti.jpg";
             data-nimg="1"
             class="w-full h-auto rounded-xl object-cover mt-8"
             style="color:transparent"
-            src="./src/assets/servers.png"
+            src={Servers.src}
           />
         </div>
       </div>
