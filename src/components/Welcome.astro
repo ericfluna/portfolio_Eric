@@ -1,210 +1,488 @@
 ---
-import astroLogo from '../assets/astro.svg';
-import background from '../assets/background.svg';
+import "@/styles/global.css";
+import Vaulti from "@/assets/vaulti.jpg";
 ---
 
-<div id="container">
-	<img id="background" src={background.src} alt="" fetchpriority="high" />
-	<main>
-		<section id="hero">
-			<a href="https://astro.build"
-				><img src={astroLogo.src} width="115" height="48" alt="Astro Homepage" /></a
-			>
-			<h1>
-				To get started, open the <code><pre>src/pages</pre></code> directory in your project.
-			</h1>
-			<section id="links">
-				<a class="button" href="https://docs.astro.build">Read our docs</a>
-				<a href="https://astro.build/chat"
-					>Join our Discord <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 127.14 96.36"
-						><path
-							fill="currentColor"
-							d="M107.7 8.07A105.15 105.15 0 0 0 81.47 0a72.06 72.06 0 0 0-3.36 6.83 97.68 97.68 0 0 0-29.11 0A72.37 72.37 0 0 0 45.64 0a105.89 105.89 0 0 0-26.25 8.09C2.79 32.65-1.71 56.6.54 80.21a105.73 105.73 0 0 0 32.17 16.15 77.7 77.7 0 0 0 6.89-11.11 68.42 68.42 0 0 1-10.85-5.18c.91-.66 1.8-1.34 2.66-2a75.57 75.57 0 0 0 64.32 0c.87.71 1.76 1.39 2.66 2a68.68 68.68 0 0 1-10.87 5.19 77 77 0 0 0 6.89 11.1 105.25 105.25 0 0 0 32.19-16.14c2.64-27.38-4.51-51.11-18.9-72.15ZM42.45 65.69C36.18 65.69 31 60 31 53s5-12.74 11.43-12.74S54 46 53.89 53s-5.05 12.69-11.44 12.69Zm42.24 0C78.41 65.69 73.25 60 73.25 53s5-12.74 11.44-12.74S96.23 46 96.12 53s-5.04 12.69-11.43 12.69Z"
-						></path></svg
-					>
-				</a>
-			</section>
-		</section>
-	</main>
+<div
+  id="container"
+  class="bg-[#FEFEFE] dark:bg-[#2f3033] text-[#5E5F65] dark:text-[#ebeaea] h-fit w-full"
+>
+  <header
+    class="hidden sm:flex items-center justify-center fixed top-10 z-50 px-4 py-3 w-full"
+  >
+    <div
+      class="flex justify-between p-5 rounded-2xl border border-zinc-200 bg-white/80 dark:bg-[#2f3033]/40 backdrop-blur-lg max-w-[450px] w-full mx-auto"
+    >
+      <a aria-label="Home" href="/" class="hover:opacity-80 transition-opacity">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="lucide lucide-house stroke-black dark:stroke-white"
+          aria-hidden="true"
+        >
+          <path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8"></path>
 
-	<a href="https://astro.build/blog/astro-5/" id="news" class="box">
-		<svg width="32" height="32" fill="none" xmlns="http://www.w3.org/2000/svg"
-			><path
-				d="M24.667 12c1.333 1.414 2 3.192 2 5.334 0 4.62-4.934 5.7-7.334 12C18.444 28.567 18 27.456 18 26c0-4.642 6.667-7.053 6.667-14Zm-5.334-5.333c1.6 1.65 2.4 3.43 2.4 5.333 0 6.602-8.06 7.59-6.4 17.334C13.111 27.787 12 25.564 12 22.666c0-4.434 7.333-8 7.333-16Zm-6-5.333C15.111 3.555 16 5.556 16 7.333c0 8.333-11.333 10.962-5.333 22-3.488-.774-6-4-6-8 0-8.667 8.666-10 8.666-20Z"
-				fill="#111827"></path></svg
-		>
-		<h2>What's New in Astro 5.0?</h2>
-		<p>
-			From content layers to server islands, click to learn more about the new features and
-			improvements in Astro 5.0
-		</p>
-	</a>
+          <path
+            d="M3 10a2 2 0 0 1 .709-1.528l7-5.999a2 2 0 0 1 2.582 0l7 5.999A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"
+          ></path>
+        </svg>
+      </a>
+
+      <div class="w-px h-5 bg-zinc-400 mx-6"></div>
+
+      <div class="space-x-8 flex items-center">
+        <a
+          href="https://www.linkedin.com/in/ericfluna/"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="hover:opacity-80 transition-opacity"
+          aria-label="LinkedIn"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="stroke-black dark:stroke-white"
+            aria-hidden="true"
+            style="width:23.5px; height:23.5px"
+          >
+            <path
+              d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"
+            ></path>
+            <rect width="4" height="12" x="2" y="9"></rect>
+            <circle cx="4" cy="4" r="2"></circle>
+          </svg>
+        </a>
+
+        <a
+          href="https://github.com/ericfluna"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="hover:opacity-80 transition-opacity"
+          aria-label="GitHub"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.8"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="lucide lucide-github flex-shrink-0 stroke-black dark:stroke-white"
+            aria-hidden="true"
+            style="width:23px;height:23px"
+            ><path
+              d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"
+            ></path><path d="M9 18c-4.51 2-5-2-7-2"></path></svg
+          >
+        </a>
+
+        
+        <a
+          href="https://referral.hackthebox.com/mzFzyUY"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="hover:opacity-80 transition-opacity"
+          aria-label="HackTheBox"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 37 42"
+            fill="none"
+            class="fill-black dark:fill-white"
+          >
+            <mask
+              id="mask0_523_402"
+              style="mask-type:luminance"
+              maskUnits="userSpaceOnUse"
+              x="0"
+              y="0"
+              width="37"
+              height="42"
+            >
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M0.946289 0.583496H36.9463V41.4168H0.946289V0.583496Z"
+                fill="white"></path>
+            </mask>
+            <g mask="url(#mask0_523_402)">
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M33.4788 29.0401C33.4788 29.3006 33.3052 29.5603 33.1318 29.6459L21.9414 36.0512C21.5944 36.2243 21.1607 36.1369 20.9872 35.7916C20.9004 35.7042 20.9004 35.5311 20.9004 35.4445V22.6366C20.9004 22.377 21.074 22.1164 21.2475 22.0299L32.4379 15.5389C32.7848 15.3658 33.2186 15.4524 33.392 15.7986C33.4788 15.8851 33.4788 16.0582 33.4788 16.1456V29.0401ZM16.9936 35.5323C16.9936 35.9651 16.6466 36.2256 16.2997 36.2256C16.2129 36.2256 16.0394 36.2256 15.9526 36.1382L4.76227 29.7346C4.50202 29.6472 4.41527 29.3876 4.41527 29.1288V16.1469C4.41527 15.7142 4.76227 15.4536 5.10926 15.4536C5.19601 15.4536 5.3695 15.4536 5.45625 15.5402L16.6466 21.9455C16.9069 22.0311 16.9936 22.2908 16.9936 22.5504V35.5323ZM7.3665 10.9532L18.5569 4.46229C18.8172 4.37488 19.0774 4.37488 19.2509 4.46229L30.4413 10.9532C30.7883 11.1255 30.8751 11.5582 30.7015 11.9044L30.4413 12.164L19.2509 18.655C18.9906 18.7424 18.7304 18.7424 18.5569 18.655L7.3665 12.164C7.01951 11.9909 6.93276 11.5582 7.10626 11.212L7.3665 10.9532ZM36.9464 11.6448C36.9464 11.2121 36.7729 10.7794 36.5127 10.5206H36.426L36.3392 10.4332L36.2525 10.3466H36.1657L19.6838 0.826547L19.597 0.740001C19.1632 0.480362 18.556 0.567773 18.1223 0.826547L1.64027 10.2601H1.55352L1.46677 10.3466L1.38003 10.4332L1.29328 10.5206C1.03304 10.7794 0.946289 11.1255 0.946289 11.5583V11.6448V30.5992C0.946289 31.1177 1.29328 31.637 1.72702 31.8974L18.2091 41.3302C18.2091 41.3302 18.2957 41.3302 18.2957 41.4175H18.3825H18.4692H18.556H18.6428H18.7295H19.0764H19.1632H19.25H19.3367H19.4235H19.5102C19.5102 41.4175 19.597 41.4175 19.597 41.3302L36.0789 31.8974C36.5995 31.637 36.8597 31.1177 36.8597 30.5992L36.9464 11.6448Z"
+              ></path>
+            </g>
+          </svg>
+        </a>
+
+      </div>
+
+      <div class="w-px h-5 bg-zinc-400 mx-6"></div>
+
+      <button
+        id="dark-Mode"
+        class="hover:opacity-80 transition-opacity hover:cursor-pointer"
+        aria-label="Dark-Mode"
+        onclick="darkMode()"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 45 45"
+          class="fill-black dark:fill-white"
+          fill="none"
+        >
+          <g clip-path="url(#clip0_526_419)">
+            <path
+              d="M5.41066 12.8179C5.7168 12.8188 6.01853 12.7448 6.28948 12.6023C6.56043 12.4598 6.79237 12.2532 6.96504 12.0004C8.35894 9.93702 10.1493 8.17153 12.2319 6.8066C12.4378 6.67118 12.6149 6.49653 12.7533 6.29264C12.8916 6.08875 12.9885 5.8596 13.0383 5.61829C13.088 5.37697 13.0898 5.12821 13.0435 4.88621C12.9971 4.6442 12.9036 4.4137 12.7682 4.20785C12.6327 4.002 12.4581 3.82485 12.2542 3.68649C12.0503 3.54814 11.8212 3.4513 11.5798 3.40151C11.3385 3.35171 11.0898 3.34994 10.8478 3.39628C10.6058 3.44262 10.3753 3.53618 10.1694 3.6716C7.67556 5.30629 5.53152 7.42038 3.86191 9.89098C3.67101 10.1727 3.56036 10.501 3.54184 10.8408C3.52332 11.1806 3.59762 11.519 3.75678 11.8198C3.91594 12.1206 4.15395 12.3724 4.4453 12.5482C4.73666 12.724 5.07037 12.8172 5.41066 12.8179V12.8179Z"
+              fill="fill-black dark:fill-white"></path>
+            <path
+              d="M3.74994 22.4997C3.7496 21.2602 3.87081 20.0236 4.11182 18.8078C4.164 18.5649 4.16737 18.314 4.12174 18.0697C4.0761 17.8255 3.98238 17.5927 3.846 17.385C3.70963 17.1773 3.53333 16.9988 3.32735 16.8598C3.12137 16.7208 2.88982 16.6241 2.64616 16.5754C2.4025 16.5267 2.15159 16.5269 1.90801 16.5761C1.66444 16.6252 1.43305 16.7222 1.2273 16.8615C1.02156 17.0009 0.845557 17.1797 0.709531 17.3876C0.573505 17.5956 0.480168 17.8285 0.434943 18.0728C-0.146283 20.9992 -0.146283 24.0114 0.434943 26.9378C0.521392 27.3613 0.751512 27.742 1.08635 28.0153C1.4212 28.2886 1.8402 28.4379 2.27244 28.4378C2.39831 28.4383 2.52392 28.4264 2.64744 28.4022C3.13503 28.3045 3.56382 28.0171 3.8395 27.6032C4.11518 27.1893 4.21516 26.6829 4.11744 26.1953C3.87416 24.9784 3.75106 23.7406 3.74994 22.4997V22.4997Z"
+              fill="fill-black dark:fill-white"></path>
+            <path
+              d="M12.24 38.1977C10.157 36.8358 8.36594 35.0728 6.97129 33.0115C6.83303 32.8076 6.65597 32.633 6.45022 32.4975C6.24446 32.3621 6.01405 32.2685 5.77212 32.2221C5.28353 32.1284 4.77772 32.2326 4.36598 32.5118C3.95423 32.791 3.67026 33.2224 3.57655 33.711C3.48284 34.1996 3.58707 34.7054 3.86629 35.1171C5.53931 37.5877 7.68728 39.7006 10.185 41.3327C10.6008 41.6062 11.1081 41.7034 11.5955 41.6028C12.0828 41.5023 12.5103 41.2122 12.7838 40.7965C13.0573 40.3808 13.1544 39.8734 13.0539 39.3861C12.9533 38.8987 12.6633 38.4712 12.2475 38.1977H12.24Z"
+              fill="fill-black dark:fill-white"></path>
+            <path
+              d="M22.5002 0C21.1348 0.00232598 19.7725 0.127835 18.4296 0.375C17.9687 0.45845 17.5558 0.711379 17.272 1.08401C16.9882 1.45664 16.8542 1.92199 16.8963 2.38848C16.9383 2.85497 17.1535 3.28882 17.4994 3.60464C17.8453 3.92046 18.2969 4.09539 18.7652 4.095C18.879 4.09416 18.9925 4.08413 19.1046 4.065C20.2246 3.85741 21.3612 3.75198 22.5002 3.75V41.25C21.3614 41.2505 20.2248 41.1476 19.1046 40.9425C18.6153 40.853 18.1104 40.9615 17.7012 41.2442C17.2919 41.527 17.0116 41.9607 16.9221 42.45C16.8326 42.9393 16.9411 43.4442 17.2239 43.8535C17.5066 44.2628 17.9403 44.543 18.4296 44.6325C21.6746 45.2261 25.0104 45.0994 28.201 44.2616C31.3917 43.4237 34.3592 41.8951 36.8939 39.7838C39.4286 37.6725 41.4685 35.03 42.8692 32.0434C44.27 29.0568 44.9975 25.7988 45.0002 22.5C44.9938 16.5346 42.6212 10.8154 38.403 6.59722C34.1848 2.37905 28.4656 0.00645203 22.5002 0V0Z"
+              fill="fill-black dark:fill-white"></path>
+          </g>
+          <defs>
+            <clipPath id="clip0_526_419">
+              <rect width="45" height="45" fill="fill-black dark:fill-white"
+              ></rect>
+            </clipPath>
+          </defs>
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <body>
+    <div
+      class="px-4 sm:px-6 lg:px-8 relative max-w-3xl mx-auto pt-62 pb-18 flex flex-col justify-center items-center"
+    >
+      <div
+        class="sm:px-6 lg:px-8 relative mx-auto flex flex-col justify-center px-4 gap-8"
+      >
+        <img
+          alt="Eric Profile"
+          width="96"
+          height="96"
+          decoding="async"
+          data-nimg="1"
+          class="w-30 h-30 rounded-full object-cover"
+          style="color:transparent"
+          src="./src/assets/foto.jpg"
+        />
+        <div
+          class="flex flex-col gap-4 text-left"
+          style="opacity: 1; transform: none;"
+        >
+          <h1
+            class="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight text-[#3a3b3e] dark:text-[#FEFEFE]"
+          >
+            Hii, I'm Eric! SysAdmin & CyberSecurity nerd.
+          </h1>
+          <p class="text-base md:text-lg font-normal leading-relaxed">
+            Threats don't care about job titles. I speak networks and code so
+            your system stays secured and monitored.
+          </p>
+        </div>
+      </div>
+
+      <div
+        class="sm:px-6 lg:px-8 relative mx-auto flex flex-col justify-center px-4 gap-8 mt-30"
+      >
+        <h2
+          class="text-xl md:text-2xl lg:text-3xl font-bold leading-tight lg:leading-[1.15] text-[#3a3b3e] dark:text-[#FEFEFE]"
+        >
+          About me
+        </h2>
+        <div class="text-base md:text-lg font-normal leading-relaxed space-y-4">
+          <p>📌 Based in Barcelona, Spain.</p>
+
+          <p>
+            <span class="font-semibold">Here's what I bring to the table:</span>
+            Most new SysAdmins stop at GUI tools. Most junior devs never check logs.
+            I do both. I might be early in my career, but I speak firewall rules
+            and Python ~ and I'm improving daily.
+          </p>
+
+          <p>
+            I don't half-done things. If I build or fix it, I document it right
+            ~ no tribal knowledge, no Slack graveyards.
+            <span class="font-semibold">The result?</span>
+            Systems that actually make sense, and docs that won't rot in a PDF tomb.
+          </p>
+
+          <p>
+            When I'm not on the PC, I'm at the gym or reading something. Winter
+            enjoyer ❄️.
+          </p>
+          <img
+            alt="Eric Profile"
+            width="100%"
+            height="auto"
+            decoding="async"
+            data-nimg="1"
+            class="w-full h-auto rounded-xl object-cover mt-8"
+            style="color:transparent"
+            src="./src/assets/servers.png"
+          />
+        </div>
+      </div>
+
+      <hr class="w-full mx-auto my-32 border-t" />
+
+      <div
+        class="sm:px-6 lg:px-8 relative mx-auto flex flex-col justify-center px-4 gap-8 w-full"
+      >
+        <h2
+          class="text-xl md:text-2xl lg:text-3xl font-bold leading-tight lg:leading-[1.15] w-full text-[#3a3b3e] dark:text-[#FEFEFE]"
+        >
+          Work Experience
+        </h2>
+
+        <div class="flex justify-between w-full items-center">
+          <p class="text-base md:text-lg leading-relaxed">Jul 2024 - Present</p>
+          <div
+            class="text-base md:text-lg font-normal leading-relaxed w-fit flex items-center gap-3"
+          >
+            SysAdmin at <a
+              href="https://www.grameimpuls.cat/"
+              target="_blank"
+              class="rounded-xl p-2 font-light ml-1 bg-[#7A87DB] hover:bg-[#6d78c2] text-[#FEFEFE] flex content-between items-center gap-2 px-2.5 transition-all duration-300 ease-in-out hover:scale-105"
+              ><svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="17"
+                height="17"
+                viewBox="0 0 17 17"
+                fill="none"
+              >
+                <path
+                  d="M9.80743 12.2292L7.4966 14.5395C6.82568 15.1924 5.92465 15.5549 4.98844 15.5486C4.05223 15.5423 3.15613 15.1678 2.49403 14.506C1.83192 13.8442 1.45704 12.9484 1.45051 12.0124C1.44397 11.0764 1.8063 10.1755 2.4591 9.50452L4.76993 7.19205C4.90276 7.05915 4.97735 6.87894 4.97728 6.69106C4.97722 6.50318 4.9025 6.32302 4.76958 6.19022C4.63665 6.05742 4.4564 5.98284 4.26848 5.98291C4.08056 5.98298 3.90036 6.05768 3.76753 6.19057L1.4574 8.50304C0.523912 9.4368 -0.000331984 10.7031 1.57728e-07 12.0233C0.000332299 13.3435 0.525213 14.6095 1.45917 15.5428C2.39314 16.4761 3.65967 17.0002 4.98016 16.9999C6.30065 16.9995 7.56693 16.4748 8.50042 15.541L10.8113 13.2307C10.9403 13.0971 11.0117 12.9182 11.0101 12.7325C11.0085 12.5468 10.934 12.3691 10.8026 12.2378C10.6713 12.1065 10.4936 12.032 10.3079 12.0304C10.1221 12.0288 9.94317 12.1002 9.80956 12.2292H9.80743Z"
+                  fill="#FEFEFE"></path>
+                <path
+                  d="M15.545 1.45974C15.084 0.995701 14.5355 0.627734 13.9312 0.377163C13.327 0.126593 12.679 -0.00159816 12.0249 1.74521e-05C11.371 -0.00171901 10.7234 0.126143 10.1193 0.376211C9.51521 0.626279 8.9667 0.993591 8.50548 1.45691L6.19111 3.76797C6.05818 3.90077 5.98346 4.08093 5.9834 4.26881C5.98333 4.45669 6.05792 4.6369 6.19075 4.7698C6.32358 4.9027 6.50378 4.9774 6.6917 4.97746C6.87962 4.97753 7.05987 4.90296 7.1928 4.77015L9.50576 2.45981C9.83556 2.12809 10.2279 1.86508 10.6601 1.686C11.0922 1.50692 11.5556 1.41534 12.0234 1.41654C12.7278 1.41677 13.4163 1.62578 14.0018 2.01714C14.5874 2.40851 15.0437 2.96465 15.3132 3.61528C15.5826 4.2659 15.6531 4.9818 15.5157 5.67246C15.3783 6.36313 15.0391 6.99755 14.5411 7.49554L12.2303 9.80589C12.0974 9.93879 12.0227 10.119 12.0227 10.307C12.0227 10.4949 12.0974 10.6752 12.2303 10.8081C12.3632 10.941 12.5435 11.0156 12.7315 11.0156C12.9195 11.0156 13.0998 10.941 13.2327 10.8081L15.5435 8.49915C16.4758 7.56502 16.9995 6.29936 16.9998 4.97974C17.0001 3.66011 16.4769 2.39425 15.545 1.45974Z"
+                  fill="#FEFEFE"></path>
+                <path
+                  d="M10.1249 5.87362L5.87447 10.1232C5.80681 10.1885 5.75284 10.2667 5.71572 10.3531C5.67859 10.4395 5.65905 10.5324 5.65823 10.6265C5.65741 10.7205 5.67534 10.8138 5.71096 10.9008C5.74658 10.9879 5.79918 11.0669 5.86569 11.1334C5.93221 11.1999 6.0113 11.2525 6.09836 11.2881C6.18542 11.3237 6.27871 11.3417 6.37277 11.3409C6.46683 11.34 6.55979 11.3205 6.64622 11.2834C6.73265 11.2463 6.81082 11.1923 6.87616 11.1247L11.1266 6.8751C11.2557 6.74152 11.3271 6.56261 11.3255 6.37691C11.3238 6.19121 11.2493 6.01357 11.118 5.88225C10.9866 5.75093 10.809 5.67645 10.6232 5.67483C10.4375 5.67322 10.2585 5.74461 10.1249 5.87362Z"
+                  fill="#FEFEFE"></path>
+              </svg> Grameimpuls</a
+            >
+          </div>
+        </div>
+
+        <div class="flex justify-between w-full items-center">
+          <p class="text-base md:text-lg leading-relaxed">
+            Oct 2022 - Mar 2023
+          </p>
+          <div
+            class="text-base md:text-lg font-normal leading-relaxed w-fit flex items-center gap-3"
+          >
+            Software Developer at <a
+              href="https://www.weecover.com/"
+              target="_blank"
+              class="rounded-xl p-2 font-light ml-1 bg-[#7A87DB] hover:bg-[#6d78c2] text-[#FEFEFE] flex content-between items-center gap-2 px-2.5 transition-all duration-300 ease-in-out hover:scale-105"
+              ><svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="17"
+                height="17"
+                viewBox="0 0 17 17"
+                fill="none"
+              >
+                <path
+                  d="M9.80743 12.2292L7.4966 14.5395C6.82568 15.1924 5.92465 15.5549 4.98844 15.5486C4.05223 15.5423 3.15613 15.1678 2.49403 14.506C1.83192 13.8442 1.45704 12.9484 1.45051 12.0124C1.44397 11.0764 1.8063 10.1755 2.4591 9.50452L4.76993 7.19205C4.90276 7.05915 4.97735 6.87894 4.97728 6.69106C4.97722 6.50318 4.9025 6.32302 4.76958 6.19022C4.63665 6.05742 4.4564 5.98284 4.26848 5.98291C4.08056 5.98298 3.90036 6.05768 3.76753 6.19057L1.4574 8.50304C0.523912 9.4368 -0.000331984 10.7031 1.57728e-07 12.0233C0.000332299 13.3435 0.525213 14.6095 1.45917 15.5428C2.39314 16.4761 3.65967 17.0002 4.98016 16.9999C6.30065 16.9995 7.56693 16.4748 8.50042 15.541L10.8113 13.2307C10.9403 13.0971 11.0117 12.9182 11.0101 12.7325C11.0085 12.5468 10.934 12.3691 10.8026 12.2378C10.6713 12.1065 10.4936 12.032 10.3079 12.0304C10.1221 12.0288 9.94317 12.1002 9.80956 12.2292H9.80743Z"
+                  fill="#FEFEFE"></path>
+                <path
+                  d="M15.545 1.45974C15.084 0.995701 14.5355 0.627734 13.9312 0.377163C13.327 0.126593 12.679 -0.00159816 12.0249 1.74521e-05C11.371 -0.00171901 10.7234 0.126143 10.1193 0.376211C9.51521 0.626279 8.9667 0.993591 8.50548 1.45691L6.19111 3.76797C6.05818 3.90077 5.98346 4.08093 5.9834 4.26881C5.98333 4.45669 6.05792 4.6369 6.19075 4.7698C6.32358 4.9027 6.50378 4.9774 6.6917 4.97746C6.87962 4.97753 7.05987 4.90296 7.1928 4.77015L9.50576 2.45981C9.83556 2.12809 10.2279 1.86508 10.6601 1.686C11.0922 1.50692 11.5556 1.41534 12.0234 1.41654C12.7278 1.41677 13.4163 1.62578 14.0018 2.01714C14.5874 2.40851 15.0437 2.96465 15.3132 3.61528C15.5826 4.2659 15.6531 4.9818 15.5157 5.67246C15.3783 6.36313 15.0391 6.99755 14.5411 7.49554L12.2303 9.80589C12.0974 9.93879 12.0227 10.119 12.0227 10.307C12.0227 10.4949 12.0974 10.6752 12.2303 10.8081C12.3632 10.941 12.5435 11.0156 12.7315 11.0156C12.9195 11.0156 13.0998 10.941 13.2327 10.8081L15.5435 8.49915C16.4758 7.56502 16.9995 6.29936 16.9998 4.97974C17.0001 3.66011 16.4769 2.39425 15.545 1.45974Z"
+                  fill="#FEFEFE"></path>
+                <path
+                  d="M10.1249 5.87362L5.87447 10.1232C5.80681 10.1885 5.75284 10.2667 5.71572 10.3531C5.67859 10.4395 5.65905 10.5324 5.65823 10.6265C5.65741 10.7205 5.67534 10.8138 5.71096 10.9008C5.74658 10.9879 5.79918 11.0669 5.86569 11.1334C5.93221 11.1999 6.0113 11.2525 6.09836 11.2881C6.18542 11.3237 6.27871 11.3417 6.37277 11.3409C6.46683 11.34 6.55979 11.3205 6.64622 11.2834C6.73265 11.2463 6.81082 11.1923 6.87616 11.1247L11.1266 6.8751C11.2557 6.74152 11.3271 6.56261 11.3255 6.37691C11.3238 6.19121 11.2493 6.01357 11.118 5.88225C10.9866 5.75093 10.809 5.67645 10.6232 5.67483C10.4375 5.67322 10.2585 5.74461 10.1249 5.87362Z"
+                  fill="#FEFEFE"></path>
+              </svg>Weecover</a
+            >
+          </div>
+        </div>
+
+        <div class="flex justify-between w-full items-center">
+          <p class="text-base md:text-lg leading-relaxed">
+            Oct 2020 - Apr 2021
+          </p>
+          <div
+            class="text-base md:text-lg font-normal leading-relaxed w-fit flex items-center gap-3"
+          >
+            IT Technician at <a
+              target="_blank"
+              href="https://www.google.es/maps/@41.4520038,2.2046298,3a,21.5y,165.66h,85.26t/data=!3m7!1e1!3m5!1sYC6rI-hUi6vtHNnNUNvplQ!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fcb_client%3Dmaps_sv.tactile%26w%3D900%26h%3D600%26pitch%3D4.7410863792527635%26panoid%3DYC6rI-hUi6vtHNnNUNvplQ%26yaw%3D165.65615535988977!7i16384!8i8192?hl=es&entry=ttu&g_ep=EgoyMDI1MDcwOS4wIKXMDSoASAFQAw%3D%3D"
+              class="rounded-xl p-2 font-light ml-1 bg-[#7A87DB] hover:bg-[#6d78c2] text-[#FEFEFE] flex content-between items-center gap-2 px-2.5 transition-all duration-300 ease-in-out hover:scale-105"
+              ><svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="17"
+                height="17"
+                viewBox="0 0 17 17"
+                fill="none"
+              >
+                <path
+                  d="M9.80743 12.2292L7.4966 14.5395C6.82568 15.1924 5.92465 15.5549 4.98844 15.5486C4.05223 15.5423 3.15613 15.1678 2.49403 14.506C1.83192 13.8442 1.45704 12.9484 1.45051 12.0124C1.44397 11.0764 1.8063 10.1755 2.4591 9.50452L4.76993 7.19205C4.90276 7.05915 4.97735 6.87894 4.97728 6.69106C4.97722 6.50318 4.9025 6.32302 4.76958 6.19022C4.63665 6.05742 4.4564 5.98284 4.26848 5.98291C4.08056 5.98298 3.90036 6.05768 3.76753 6.19057L1.4574 8.50304C0.523912 9.4368 -0.000331984 10.7031 1.57728e-07 12.0233C0.000332299 13.3435 0.525213 14.6095 1.45917 15.5428C2.39314 16.4761 3.65967 17.0002 4.98016 16.9999C6.30065 16.9995 7.56693 16.4748 8.50042 15.541L10.8113 13.2307C10.9403 13.0971 11.0117 12.9182 11.0101 12.7325C11.0085 12.5468 10.934 12.3691 10.8026 12.2378C10.6713 12.1065 10.4936 12.032 10.3079 12.0304C10.1221 12.0288 9.94317 12.1002 9.80956 12.2292H9.80743Z"
+                  fill="#FEFEFE"></path>
+                <path
+                  d="M15.545 1.45974C15.084 0.995701 14.5355 0.627734 13.9312 0.377163C13.327 0.126593 12.679 -0.00159816 12.0249 1.74521e-05C11.371 -0.00171901 10.7234 0.126143 10.1193 0.376211C9.51521 0.626279 8.9667 0.993591 8.50548 1.45691L6.19111 3.76797C6.05818 3.90077 5.98346 4.08093 5.9834 4.26881C5.98333 4.45669 6.05792 4.6369 6.19075 4.7698C6.32358 4.9027 6.50378 4.9774 6.6917 4.97746C6.87962 4.97753 7.05987 4.90296 7.1928 4.77015L9.50576 2.45981C9.83556 2.12809 10.2279 1.86508 10.6601 1.686C11.0922 1.50692 11.5556 1.41534 12.0234 1.41654C12.7278 1.41677 13.4163 1.62578 14.0018 2.01714C14.5874 2.40851 15.0437 2.96465 15.3132 3.61528C15.5826 4.2659 15.6531 4.9818 15.5157 5.67246C15.3783 6.36313 15.0391 6.99755 14.5411 7.49554L12.2303 9.80589C12.0974 9.93879 12.0227 10.119 12.0227 10.307C12.0227 10.4949 12.0974 10.6752 12.2303 10.8081C12.3632 10.941 12.5435 11.0156 12.7315 11.0156C12.9195 11.0156 13.0998 10.941 13.2327 10.8081L15.5435 8.49915C16.4758 7.56502 16.9995 6.29936 16.9998 4.97974C17.0001 3.66011 16.4769 2.39425 15.545 1.45974Z"
+                  fill="#FEFEFE"></path>
+                <path
+                  d="M10.1249 5.87362L5.87447 10.1232C5.80681 10.1885 5.75284 10.2667 5.71572 10.3531C5.67859 10.4395 5.65905 10.5324 5.65823 10.6265C5.65741 10.7205 5.67534 10.8138 5.71096 10.9008C5.74658 10.9879 5.79918 11.0669 5.86569 11.1334C5.93221 11.1999 6.0113 11.2525 6.09836 11.2881C6.18542 11.3237 6.27871 11.3417 6.37277 11.3409C6.46683 11.34 6.55979 11.3205 6.64622 11.2834C6.73265 11.2463 6.81082 11.1923 6.87616 11.1247L11.1266 6.8751C11.2557 6.74152 11.3271 6.56261 11.3255 6.37691C11.3238 6.19121 11.2493 6.01357 11.118 5.88225C10.9866 5.75093 10.809 5.67645 10.6232 5.67483C10.4375 5.67322 10.2585 5.74461 10.1249 5.87362Z"
+                  fill="#FEFEFE"></path>
+              </svg>MJC Asesores</a
+            >
+          </div>
+        </div>
+      </div>
+
+      <hr class="w-full mx-auto my-32 border-t border-gray-300" />
+
+      <div
+        class="sm:px-6 lg:px-8 relative mx-auto flex flex-col justify-center px-4 gap-8 w-full"
+      >
+        <h2
+          class="text-xl md:text-2xl lg:text-3xl font-bold leading-tight lg:leading-[1.15] w-full flex justify-center text-[#3a3b3e] dark:text-[#FEFEFE]"
+        >
+          Check out what I've been up to!
+        </h2>
+
+        <div
+          class="space-y-6 border border-zinc-200/60 shadow-md rounded-xl md:rounded-2xl p-4 w-full max-w-[450px] mx-auto"
+        >
+          <div
+            class="overflow-hidden rounded-lg md:rounded-xl "
+          >
+            <img
+              alt="Vaulti"
+              class="w-full h-full object-cover scale-105 transition-all duration-300 ease-in-out hover:scale-110"
+              style="color:transparent"
+              src={Vaulti.src}
+            />
+          </div>
+          <div class="space-y-2">
+            <h3 class="text-base md:text-lg font-semibold leading-tight">
+              Vaulti ~ Password Manager
+            </h3>
+            <p class="text-base leading-relaxed">
+              Designed to enhance users' digital security, Vaulti provides a
+              unified platform for storing, generating, and managing strong
+              passwords.
+            </p>
+            <div class="flex place-content-between">
+              <div class="flex flex-wrap gap-1.5 pt-1 w-2/3 content-end">
+                <span
+                  class="px-2.5 py-2 bg-zinc-100 dark:bg-zinc-700 border border-zinc-200/30 text- text-xs rounded-md font-medium h-fit transition-all duration-300 ease-in-out hover:scale-105"
+                  >Flutter</span
+                >
+                <span
+                  class="px-2.5 py-2 bg-zinc-100 dark:bg-zinc-700 border border-zinc-200/30 text-xs rounded-md font-medium h-fit transition-all duration-300 ease-in-out hover:scale-105"
+                  >Dart</span
+                ><span
+                  class="px-2.5 py-2 bg-zinc-100 dark:bg-zinc-700 border border-zinc-200/30 text-xs rounded-md font-medium h-fit transition-all duration-300 ease-in-out hover:scale-105"
+                  >SQLite</span
+                >
+                <span
+                  class="px-2.5 py-2 bg-zinc-100 dark:bg-zinc-700 border border-zinc-200/30 text-xs rounded-md font-medium h-fit transition-all duration-300 ease-in-out hover:scale-105"
+                  >argon2</span
+                >
+                <span
+                  class="px-2.5 py-2 bg-zinc-100 dark:bg-zinc-700 border border-zinc-200/30 text-xs rounded-md font-medium h-fit transition-all duration-300 ease-in-out hover:scale-105"
+                  >AES-256</span
+                >
+              </div>
+              <div class="pt-1 content-end">
+                <div
+                  class="rounded-full bg-yellow-100 dark:bg-yellow-100 text-yellow-700 flex items-center gap-2 px-4 py-1.5 text-xs font-medium"
+                >
+                  <div class="relative flex items-center justify-center">
+                    <div
+                      class="rounded-full bg-yellow-600 h-2 w-2 animate-pulse"
+                    >
+                    </div>
+                    <div
+                      class="absolute animate-ping rounded-full bg-yellow-600 h-2 w-2 opacity-75"
+                    >
+                    </div>
+                  </div>
+                  <span>Coming soon </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <hr class="w-full mx-auto my-32 border-t border-gray-300" />
+
+      <div
+        class="animate-slide-in-bottom w-full flex flex-col items-center justify-center"
+      >
+        <p>Copyright © 2025 ~ By Eric Luna 🌙</p>
+        <p class="font-bold">All rights reserved</p>
+      </div>
+    </div>
+
+    <script>
+       (function () {
+    const userPref = localStorage.getItem("color-scheme");
+
+    if (userPref === "dark") {
+      document.documentElement.classList.add("dark");
+    } else if (userPref === "light") {
+      document.documentElement.classList.remove("dark");
+    } else {
+      // Si no hay preferencia, usamos la del sistema
+      const systemPrefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+      if (systemPrefersDark) {
+        document.documentElement.classList.add("dark");
+        localStorage.setItem("color-scheme", "dark");
+      } else {
+        document.documentElement.classList.remove("dark");
+        localStorage.setItem("color-scheme", "light");
+      }
+    }
+  })();
+
+    </script>
+
+    <script is:inline>
+  
+
+  // Al hacer clic en el botón
+  function darkMode() {
+    const current = localStorage.getItem("color-scheme");
+
+    if (current === "dark") {
+      document.documentElement.classList.remove("dark");
+      localStorage.setItem("color-scheme", "light");
+    } else {
+      document.documentElement.classList.add("dark");
+      localStorage.setItem("color-scheme", "dark");
+    }
+  }
+    </script>
+  </body>
 </div>
-
-<style>
-	#background {
-		position: fixed;
-		top: 0;
-		left: 0;
-		width: 100%;
-		height: 100%;
-		z-index: -1;
-		filter: blur(100px);
-	}
-
-	#container {
-		font-family: Inter, Roboto, 'Helvetica Neue', 'Arial Nova', 'Nimbus Sans', Arial, sans-serif;
-		height: 100%;
-	}
-
-	main {
-		height: 100%;
-		display: flex;
-		justify-content: center;
-	}
-
-	#hero {
-		display: flex;
-		align-items: start;
-		flex-direction: column;
-		justify-content: center;
-		padding: 16px;
-	}
-
-	h1 {
-		font-size: 22px;
-		margin-top: 0.25em;
-	}
-
-	#links {
-		display: flex;
-		gap: 16px;
-	}
-
-	#links a {
-		display: flex;
-		align-items: center;
-		padding: 10px 12px;
-		color: #111827;
-		text-decoration: none;
-		transition: color 0.2s;
-	}
-
-	#links a:hover {
-		color: rgb(78, 80, 86);
-	}
-
-	#links a svg {
-		height: 1em;
-		margin-left: 8px;
-	}
-
-	#links a.button {
-		color: white;
-		background: linear-gradient(83.21deg, #3245ff 0%, #bc52ee 100%);
-		box-shadow:
-			inset 0 0 0 1px rgba(255, 255, 255, 0.12),
-			inset 0 -2px 0 rgba(0, 0, 0, 0.24);
-		border-radius: 10px;
-	}
-
-	#links a.button:hover {
-		color: rgb(230, 230, 230);
-		box-shadow: none;
-	}
-
-	pre {
-		font-family:
-			ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, Consolas, 'DejaVu Sans Mono',
-			monospace;
-		font-weight: normal;
-		background: linear-gradient(14deg, #d83333 0%, #f041ff 100%);
-		-webkit-background-clip: text;
-		-webkit-text-fill-color: transparent;
-		background-clip: text;
-		margin: 0;
-	}
-
-	h2 {
-		margin: 0 0 1em;
-		font-weight: normal;
-		color: #111827;
-		font-size: 20px;
-	}
-
-	p {
-		color: #4b5563;
-		font-size: 16px;
-		line-height: 24px;
-		letter-spacing: -0.006em;
-		margin: 0;
-	}
-
-	code {
-		display: inline-block;
-		background:
-			linear-gradient(66.77deg, #f3cddd 0%, #f5cee7 100%) padding-box,
-			linear-gradient(155deg, #d83333 0%, #f041ff 18%, #f5cee7 45%) border-box;
-		border-radius: 8px;
-		border: 1px solid transparent;
-		padding: 6px 8px;
-	}
-
-	.box {
-		padding: 16px;
-		background: rgba(255, 255, 255, 1);
-		border-radius: 16px;
-		border: 1px solid white;
-	}
-
-	#news {
-		position: absolute;
-		bottom: 16px;
-		right: 16px;
-		max-width: 300px;
-		text-decoration: none;
-		transition: background 0.2s;
-		backdrop-filter: blur(50px);
-	}
-
-	#news:hover {
-		background: rgba(255, 255, 255, 0.55);
-	}
-
-	@media screen and (max-height: 368px) {
-		#news {
-			display: none;
-		}
-	}
-
-	@media screen and (max-width: 768px) {
-		#container {
-			display: flex;
-			flex-direction: column;
-		}
-
-		#hero {
-			display: block;
-			padding-top: 10%;
-		}
-
-		#links {
-			flex-wrap: wrap;
-		}
-
-		#links a.button {
-			padding: 14px 18px;
-		}
-
-		#news {
-			right: 16px;
-			left: 16px;
-			bottom: 2.5rem;
-			max-width: 100%;
-		}
-
-		h1 {
-			line-height: 1.5;
-		}
-	}
-</style>

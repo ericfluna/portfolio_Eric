@@ -1,5 +1,21 @@
 {
   "extends": "astro/tsconfigs/strict",
   "include": [".astro/types.d.ts", "**/*"],
-  "exclude": ["dist"]
+  
+  "exclude": ["dist"],
+   "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"],
+    }
+  },
+  "theme": {
+    "extend": {
+      "colors": {
+        "primary": "rgb(var(--color-primary) / <alpha-value>)",
+        "background": "rgb(var(--color-background) / <alpha-value>)",
+        "neutral": "rgb(var(--color-neutral) / <alpha-value>)",
+      },
+    },
+  },
 }
