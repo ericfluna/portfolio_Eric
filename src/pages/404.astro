@@ -1,0 +1,30 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+import "@/styles/global.css";
+import NotFound from "@/assets/images/NotFound.jpg";
+---
+
+<Layout>
+  <div>
+    <div
+      class="max-w-3xl mx-auto pt-62 pb-18 flex flex-col items-center justify-between"
+    >
+      <h1 class="text-3xl">404 ~ Page Not Found</h1>
+      <button class=" hover:opacity-80 py-2 px-1">
+        <a href="/">Go back</a>
+      </button>
+
+      <img
+        alt="Eric Profile"
+        width="100%"
+        height="auto"
+        decoding="async"
+        data-nimg="1"
+        class="w-full h-auto rounded-xl object-cover mt-8"
+        style="color:transparent"
+        src={NotFound.src}
+      />
+    </div>
+  </div>
+</Layout>

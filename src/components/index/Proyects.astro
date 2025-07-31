@@ -1,0 +1,77 @@
+---
+const proyects = Object.values(
+  import.meta.glob("../../pages/proyects/*.md", { eager: true })
+);
+---
+
+<div
+  class="sm:px-6 lg:px-8 relative mx-auto flex flex-col justify-center px-4 gap-8 w-full"
+>
+  <h2
+    class="text-xl md:text-2xl lg:text-3xl font-bold leading-tight lg:leading-[1.15] w-full flex justify-center text-[#3a3b3e] dark:text-[#FEFEFE]"
+  >
+    Check out what I've been up to!
+  </h2>
+
+  {
+    proyects.map((p) => (
+      <div class="space-y-6 border border-zinc-200/60 shadow-md rounded-xl md:rounded-2xl p-4 w-full max-w-[450px] mx-auto">
+        <div class="overflow-hidden rounded-lg md:rounded-xl">
+          <a href={p.url}>
+            <img
+              alt="Vaulti"
+              class="w-full h-full object-cover scale-105 transition-all duration-300 ease-in-out hover:scale-110"
+              style="color:transparent"
+              src={p.frontmatter.image}
+            />
+          </a>
+        </div>
+        <div class="space-y-2">
+          <div>
+            <a
+              href={p.url}
+              class="text-base md:text-lg font-semibold leading-tight"
+            >
+              {p.frontmatter.title}
+            </a>
+          </div>
+          <>
+            <div>
+              <p class="text-base leading-relaxed">
+                {p.frontmatter.description}
+              </p>
+            </div>
+            <div class="flex place-content-between">
+              <div class="flex flex-wrap gap-1.5 pt-1 w-2/3 content-end">
+                {p.frontmatter.stack.map((tech) => (
+                  <span class="px-2.5 py-2 bg-zinc-100 dark:bg-zinc-700 border border-zinc-200/30 text- text-xs rounded-md font-medium h-fit transition-all duration-300 ease-in-out hover:scale-105">
+                    {tech}
+                  </span>
+                ))}
+              </div>
+              <div class="pt-1 content-end">
+                {p.frontmatter.isDone ? (
+                  <div class="rounded-full bg-green-100 dark:bg-green-100 text-green-700 flex items-center gap-2 px-4 py-1.5 text-xs font-medium">
+                    <div class="relative flex items-center justify-center">
+                      <div class="rounded-full bg-green-600 h-2 w-2 animate-pulse" />
+                      <div class="absolute animate-ping rounded-full bg-green-600 h-2 w-2 opacity-75" />
+                    </div>
+                    <span>Completed </span>
+                  </div>
+                ) : (
+                  <div class="rounded-full bg-yellow-100 dark:bg-yellow-100 text-yellow-700 flex items-center gap-2 px-4 py-1.5 text-xs font-medium">
+                    <div class="relative flex items-center justify-center">
+                      <div class="rounded-full bg-yellow-600 h-2 w-2 animate-pulse" />
+                      <div class="absolute animate-ping rounded-full bg-yellow-600 h-2 w-2 opacity-75" />
+                    </div>
+                    <span>Coming Soon </span>
+                  </div>
+                )}
+              </div>
+            </div>
+          </>
+        </div>
+      </div>
+    ))
+  }
+</div>
