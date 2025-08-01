@@ -1,8 +1,8 @@
 ---
 import Layout from "../layouts/Layout.astro";
+const NotFound = "/assets/images/NotFound.jpg";
 
 import "@/styles/global.css";
-import NotFound from "@/assets/images/NotFound.jpg";
 ---
 
 <Layout>
@@ -23,7 +23,7 @@ import NotFound from "@/assets/images/NotFound.jpg";
         data-nimg="1"
         class="w-full h-auto rounded-xl object-cover mt-8"
         style="color:transparent"
-        src={NotFound.src}
+        src={NotFound}
       />
     </div>
   </div>
