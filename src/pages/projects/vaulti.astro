@@ -1,18 +1,12 @@
 ---
 // src/pages/projects/[project].astro
 import Layout from "@/layouts/Layout.astro";
-import { projects } from "@/data/projects";
 import "@/styles/global.css";
-const Back = "/assets/icons/back.svg";
 
-export function getStaticPaths() {
-  return projects.map((project) => ({
-    params: { project: project.slug },
-    props: { project }, // Pasamos todo el objeto proyecto como prop
-  }));
-}
+import { projects } from "@/data/projects.astro";
+const project = projects.find((p) => p.title.toLowerCase().includes("vaulti"));
 
-const { project } = Astro.props; // Ahora tenemos acceso a todos los datos
+import StatusBadge from "@/components/ui/StatusBadge.astro";
 ---
 
 <Layout>
@@ -35,42 +29,19 @@ const { project } = Astro.props; // Ahora tenemos acceso a todos los datos
         </svg><p class="text-2xl font-bold">Back</p></a
       >
 
-      <!--
-    fdfdsfs
-     -->
       <div class="gap-7 flex flex-col mt-10">
         <div class="w-full flex justify-between items-end">
-          <h1 class="text-3xl font-bold">
-            {project.title}
-          </h1>
+          <h1 class="text-3xl font-bold">Vaulti ~ Password Manager</h1>
 
           <div>
-            {
-              project.isDone ? (
-                <div class="rounded-full bg-green-100 dark:bg-green-100 text-green-700 flex items-center gap-2 px-4 py-1.5 text-xs font-medium">
-                  <div class="relative flex items-center justify-center">
-                    <div class="rounded-full bg-green-600 h-2 w-2 animate-pulse" />
-                    <div class="absolute animate-ping rounded-full bg-green-600 h-2 w-2 opacity-75" />
-                  </div>
-                  <span>Completed </span>
-                </div>
-              ) : (
-                <div class="rounded-full bg-yellow-100 dark:bg-yellow-100 text-yellow-700 flex items-center gap-2 px-4 py-1.5 text-xs font-medium">
-                  <div class="relative flex items-center justify-center">
-                    <div class="rounded-full bg-yellow-600 h-2 w-2 animate-pulse" />
-                    <div class="absolute animate-ping rounded-full bg-yellow-600 h-2 w-2 opacity-75" />
-                  </div>
-                  <span>Coming Soon </span>
-                </div>
-              )
-            }
+            <StatusBadge isDone={project?.isDone} />
           </div>
         </div>
 
-        <p class="text-lg place-self-start">{project.description}</p>
+        <p class="text-lg place-self-start">{project?.description}</p>
         <div class="flex flex-wrap gap-2 pt-1 content-end items-center">
           <p>Stack:</p>{
-            project.stack.map((tech) => (
+            project?.stack.map((tech) => (
               <span class="px-2.5 py-2 bg-zinc-100 dark:bg-zinc-700 border border-zinc-200/30 text- text-xs rounded-md font-medium h-fit transition-all duration-300 ease-in-out hover:scale-105">
                 {tech}
               </span>
@@ -78,17 +49,15 @@ const { project } = Astro.props; // Ahora tenemos acceso a todos los datos
           }
         </div>
         <div class="relative overflow-hidden rounded-xl shadow-lg">
-          {/* Contenedor del carrusel */}
           <div
             class="flex snap-x snap-mandatory overflow-x-auto scroll-smooth hide-scrollbar"
           >
-            {/* Misma imagen repetida 4 veces (como en tu ejemplo) */}
             {
               [1, 2, 3, 4].map((_, index) => (
                 <div class="w-full flex-shrink-0 snap-center">
                   <img
-                    src={project.images[0]}
-                    alt={`${project.title} - Vista ${index + 1}`}
+                    src={project?.images[0]}
+                    alt={`${project?.title} - Vista ${index + 1}`}
                     class="w-full h-auto max-h-96 object-cover"
                     loading={index === 0 ? "eager" : "lazy"}
                   />
@@ -97,7 +66,6 @@ const { project } = Astro.props; // Ahora tenemos acceso a todos los datos
             }
           </div>
 
-          {/* Indicadores de posición (puntos) */}
           <div
             class="absolute bottom-4 left-0 right-0 flex justify-center gap-2"
           >

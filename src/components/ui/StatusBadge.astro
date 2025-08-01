@@ -1,0 +1,31 @@
+---
+interface Props {
+  isDone?: boolean;
+  completedText?: string;
+  pendingText?: string;
+}
+
+const {
+  isDone,
+  completedText = "Completed",
+  pendingText = "Coming Soon"
+} = Astro.props;
+---
+
+{isDone ? (
+  <div class="rounded-full bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200 flex items-center gap-2 px-4 py-1.5 text-xs font-medium transition-colors">
+    <div class="relative flex items-center justify-center">
+      <div class="rounded-full bg-green-600 h-2 w-2 animate-pulse" />
+      <div class="absolute animate-ping rounded-full bg-green-600 h-2 w-2 opacity-75" />
+    </div>
+    <span>{completedText}</span>
+  </div>
+) : (
+  <div class="rounded-full bg-yellow-100 dark:bg-yellow-900 text-yellow-800 dark:text-yellow-200 flex items-center gap-2 px-4 py-1.5 text-xs font-medium transition-colors">
+    <div class="relative flex items-center justify-center">
+      <div class="rounded-full bg-yellow-600 h-2 w-2 animate-pulse" />
+      <div class="absolute animate-ping rounded-full bg-yellow-600 h-2 w-2 opacity-75" />
+    </div>
+    <span>{pendingText}</span>
+  </div>
+)}
