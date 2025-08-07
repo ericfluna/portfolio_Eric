@@ -1,0 +1,55 @@
+---
+interface Props {
+  images: string[];
+}
+
+const { images } = Astro.props;
+---
+
+<div>
+  <div class="overflow-hidden rounded-xl shadow-lg relative w-fit flex flex-col items-center justify-center m-auto">
+    <div class="w-full flex-shrink-0">
+      <img
+        id="carousel-image"
+        src={images[0]}
+        alt="Imagen del carrusel"
+        class="h-auto w-full max-w-[400px] object-cover transition-opacity duration-300"
+      />
+    </div>
+  </div>
+  <div class="absolute bottom-4 left-0 right-0 flex justify-center gap-2">
+    {
+      images?.map((_, index) => (
+        <button
+          class={`h-[0.6rem] w-[0.6rem] rounded-full transition-all ${index === 0 ? "bg-gray-500" : "bg-gray-300"} hover:bg-gray-600`}
+          data-index={index}
+        />
+      ))
+    }
+  </div>
+</div>
+<script is:inline define:vars={{ images }}>
+  window.addEventListener("DOMContentLoaded", () => {
+    const imgElement = document.getElementById("carousel-image");
+    const buttons = document.querySelectorAll("button[data-index]");
+
+    if (!imgElement || buttons.length === 0) {
+      console.error("No se encontró la imagen o los botones en el DOM");
+      return;
+    }
+
+    buttons.forEach((button) => {
+      button.addEventListener("click", () => {
+        const index = parseInt(button.dataset.index);
+        imgElement.src = images[index];
+        console.log("Imagen cambiada al índice:", index);
+
+        // Opcional: actualiza el color del botón activo
+        buttons.forEach((btn, i) => {
+          btn.classList.toggle("bg-gray-500", i === index);
+          btn.classList.toggle("bg-gray-300", i !== index);
+        });
+      });
+    });
+  });
+</script>

@@ -7,6 +7,7 @@ import { projects } from "@/data/projects.astro";
 const project = projects.find((p) => p.title.toLowerCase().includes("vaulti"));
 
 import StatusBadge from "@/components/ui/StatusBadge.astro";
+import ImageCarousel from "@/components/ui/ImageCarousel.astro";
 ---
 
 <Layout>
@@ -29,7 +30,7 @@ import StatusBadge from "@/components/ui/StatusBadge.astro";
         </svg><p class="text-2xl font-bold">Back</p></a
       >
 
-      <div class="gap-7 flex flex-col mt-10">
+      <div class="gap-7 flex flex-col mt-10 w-full">
         <div class="w-full flex justify-between items-end">
           <h1 class="text-3xl font-bold">Vaulti ~ Password Manager</h1>
 
@@ -38,7 +39,24 @@ import StatusBadge from "@/components/ui/StatusBadge.astro";
           </div>
         </div>
 
-        <p class="text-lg place-self-start">{project?.description}</p>
+        <p class="text-lg place-self-start">
+          Vaulti is a mobile app designed to store and manage passwords securely
+          and intuitively. Built with a focus on privacy and user experience, it
+          features military-grade encryption and keeps your credentials in your
+          device's secure enclave.
+        </p>
+        <p class="text-lg place-self-start font-bold">Key Features:</p>
+        <ul class="list-disc pl-5 text-lg">
+          <li>🔐 AES-256 encrypted storage for passwords.</li>
+          <li>📱 Intuitive UI</li>
+          <li>🛠 Built-in strong password generator.</li>
+        </ul>
+        <p class="text-lg place-self-start font-bold">
+          For more info: <a
+            href="https://vaultipage.netlify.app/"
+            class="text-blue-500 hover:underline">vaulti page</a>
+        </p>
+
         <div class="flex flex-wrap gap-2 pt-1 content-end items-center">
           <p>Stack:</p>{
             project?.stack.map((tech) => (
@@ -48,34 +66,8 @@ import StatusBadge from "@/components/ui/StatusBadge.astro";
             ))
           }
         </div>
-        <div class="relative overflow-hidden rounded-xl shadow-lg">
-          <div
-            class="flex snap-x snap-mandatory overflow-x-auto scroll-smooth hide-scrollbar"
-          >
-            {
-              [1, 2, 3, 4].map((_, index) => (
-                <div class="w-full flex-shrink-0 snap-center">
-                  <img
-                    src={project?.images[0]}
-                    alt={`${project?.title} - Vista ${index + 1}`}
-                    class="w-full h-auto max-h-96 object-cover"
-                    loading={index === 0 ? "eager" : "lazy"}
-                  />
-                </div>
-              ))
-            }
-          </div>
 
-          <div
-            class="absolute bottom-4 left-0 right-0 flex justify-center gap-2"
-          >
-            {
-              [1, 2, 3, 4].map((_, index) => (
-                <div class="h-2 w-2 rounded-full bg-white/80 hover:bg-white transition-all" />
-              ))
-            }
-          </div>
-        </div>
+        <ImageCarousel images={project?.images ?? []} client:load />
 
         <style>
           .hide-scrollbar::-webkit-scrollbar {
@@ -88,5 +80,5 @@ import StatusBadge from "@/components/ui/StatusBadge.astro";
         </style>
       </div>
     </div>
-  </div></Layout
->
+  </div>
+</Layout>
